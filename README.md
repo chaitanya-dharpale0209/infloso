@@ -94,30 +94,6 @@
 
 ---
 
-### **Additional Frontend Improvements:**
-- **Responsive Design:** The UI is built to be responsive across different devices (desktop, tablet, mobile) using **Tailwind CSS**.
-- **Form Validation:** Validation is implemented on both the frontend and backend to ensure secure and valid data is submitted.
-- **Error Handling:** Error messages are displayed clearly for both successful and failed form submissions.
-
----
-
-### **Pending Improvements / Future Enhancements:**
-- **Password Strength Validation:** Implement stronger password policies and feedback on password strength for both the frontend and backend.
-- **Token Expiration & Refresh:** Add a token expiration mechanism with a refresh token functionality to ensure secure sessions.
-- **Unit Testing:** Write unit tests for both backend API routes (using tools like **Jest** or **Mocha**) and frontend components (using **React Testing Library**).
-- **Security Enhancements:**
-  - Ensure sensitive data is encrypted and environment variables are managed securely.
-  - Use **HTTPS** for encrypted communication in production.
-- **UI/UX Enhancements:**
-  - Add **microinteractions** and animations using libraries like **Framer Motion** to enhance the user experience.
-  - Implement a **Show/Hide Password** toggle to improve usability on password fields.
-- **API Documentation:** Provide documentation for the backend API, using tools like **Swagger** or **Postman**, to make it easier for other developers to integrate with the API.
-
----
-
-## **Conclusion:**
-This project successfully demonstrates a secure and responsive login and signup system using **React.js**, **Node.js**, and **JWT authentication**. The implementation includes essential features like email verification, password hashing, rate limiting, and JWT-based authentication, with a focus on security and user experience. There are further improvements planned, such as adding password strength validation, implementing token refresh functionality, and writing unit tests to ensure the robustness of the system.
-
 ---
 
 ## **How to Run:**
