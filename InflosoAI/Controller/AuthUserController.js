@@ -32,7 +32,7 @@ const register = async (req, res) => {
         const verificationToken = jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
         // This is email verification link
-        const verificationLink = `http://localhost:5000/api/auth/verify-email/${verificationToken}`;
+        const verificationLink = `https://infloso-zffl.onrender.com/api/auth/verify-email/${verificationToken}`;
 
         // this will send email verification link to the registering email id
         node_mail_sender.sendMail({
@@ -115,6 +115,7 @@ const login =async(req, res)=>{
             { expiresIn: '1h' }
         );
         
+        console.log("successfully logged in")
         //giving the response of token after successfull login
        res.json({token})
 
@@ -136,7 +137,9 @@ const requestPasswordReset = async (req, res) => {
         // This linke will reset token
         const resetToken = jwt.sign({ email: user.email }, process.env.JWT_SECRET, { expiresIn: '15m' });
 
-        const resetLink = `http://localhost:5000/api/auth/reset-password/${resetToken}`;
+        const resetLink = `https://infloso-4v2ib2zeq-chaitanya-dharpales-projects-509faa8f.vercel.app/reset-password/${resetToken}`;
+
+
 
         // This line will send reset link via email
         await node_mail_sender.sendMail({
