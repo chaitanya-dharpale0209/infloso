@@ -11,6 +11,7 @@ connectDb();
 //creating an object of Express
 const app = express();
 
+app.set("trust proxy", 1); 
 app.use(cors());
 app.use(express.urlencoded({extended:true}));
 app.use(json());
