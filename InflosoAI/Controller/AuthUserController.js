@@ -137,7 +137,7 @@ const requestPasswordReset = async (req, res) => {
         // This linke will reset token
         const resetToken = jwt.sign({ email: user.email }, process.env.JWT_SECRET, { expiresIn: '15m' });
 
-        const resetLink = `https://infloso-m88uuzwu9-chaitanya-dharpales-projects-509faa8f.vercel.app/reset-password/${resetToken}`;
+        const resetLink = `https://infloso-h8ktt4s6w-chaitanya-dharpales-projects-509faa8f.vercel.app/reset-password/${resetToken}`;
 
 
 
