@@ -9,7 +9,7 @@ const VerifyEmail = () => {
   useEffect(() => {
     const verifyUser = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/auth/verify-email/${token}`);
+        const res = await axios.get(`https://infloso-zffl.onrender.com/api/auth/verify-email/${token}`);
         setMessage(res.data.message);
       } catch (error) {
         setMessage(error.response?.data.message || "Email verification failed");

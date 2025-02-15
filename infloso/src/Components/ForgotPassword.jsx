@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const API_URL = "http://localhost:5000/api/auth";
+const API_URL = "https://infloso-zffl.onrender.com/api/auth";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");

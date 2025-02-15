@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 
-const API_URL = "http://localhost:5000/api/auth";
+const API_URL = "https://infloso-zffl.onrender.com/api/auth";
 
 const ResetPassword = () => {
   const { token } = useParams();
@@ -16,16 +16,20 @@ const ResetPassword = () => {
     setLoading(true);
     setMessage("");
 
+    console.log("Token from URL:", token); // Debugging
+
     try {
-      const res = await axios.post(`${API_URL}/reset-password/${token}`, { newPassword });
-      setMessage(res.data.message);
-      setTimeout(() => navigate("/login"), 2000);
+        const res = await axios.post(`${API_URL}/reset-password/${token}`, { newPassword });
+        console.log("Response:", res.data); // Debugging
+        setMessage(res.data.message);
+        setTimeout(() => navigate("/login"), 2000);
     } catch (error) {
-      setMessage(error.response?.data.message || "Something went wrong!");
+        console.error("Error response:", error.response?.data || error.message); // Logging
+        setMessage(error.response?.data.message || "Something went wrong!");
     } finally {
-      setLoading(false);
+        setLoading(false);
     }
-  };
+};
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-100 to-blue-300">
