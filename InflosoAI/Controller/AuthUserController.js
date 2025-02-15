@@ -163,23 +163,32 @@ const resetPassword = async (req, res) => {
         const { token } = req.params;
         const { newPassword } = req.body;
 
+        console.log("Received token:", token);  // Debugging
+        console.log("New password:", newPassword);  // Debugging
+
         // Verify the token
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        console.log("Decoded token:", decoded); // Debugging
+
         const user = await User.findOne({ email: decoded.email });
+        if (!user) {
+            console.log("User not found");
+            return res.status(400).json({ message: "Invalid or expired token" });
+        }
 
-        if (!user) return res.status(400).json({ message: "Invalid or expired token" });
-
-        // Hashing the new password
+        // Hash the new password
         const salt = await bcrypt.genSalt(10);
         user.password = await bcrypt.hash(newPassword, salt);
 
-        //successfully storing the changed passworkd in our database
+        // Save new password
         await user.save();
         res.status(200).json({ message: "Password reset successfully. You can now log in." });
 
     } catch (error) {
+        console.error("Error resetting password:", error.message); // Logging
         res.status(400).json({ message: "Invalid or expired token" });
     }
 };
+
 
 module.exports = {register, verifyEmail,login, requestPasswordReset, resetPassword}
